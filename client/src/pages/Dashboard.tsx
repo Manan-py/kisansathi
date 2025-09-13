@@ -3,8 +3,10 @@ import { MessageSquare, Camera, TrendingUp, Sprout, Sun, Droplets, Wind, MapPin,
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { NewsTicker } from "@/components/NewsTicker"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Dashboard() {
+  const { t } = useLanguage()
   
   //todo: remove mock functionality
   const mockWeather = {
@@ -47,29 +49,29 @@ export default function Dashboard() {
 
   const featureCards = [
     {
-      title: "Talk to AgriBot",
-      description: "Get AI-powered agricultural advice",
+      title: t("features.chatbot"),
+      description: t("features.chatbotDesc"),
       icon: MessageSquare,
       path: "/chat",
       testId: "card-feature-chatbot"
     },
     {
-      title: "Scan your Plant",
-      description: "Detect plant diseases with AI",
+      title: t("features.diseaseDetection"),
+      description: t("features.diseaseDetectionDesc"),
       icon: Camera,
       path: "/disease-detection",
       testId: "card-feature-disease"
     },
     {
-      title: "Market Prediction",
-      description: "Check mandi prices and trends",
+      title: t("features.mandiPrice"),
+      description: t("features.mandiPriceDesc"),
       icon: TrendingUp,
       path: "/market-prices",
       testId: "card-feature-market"
     },
     {
-      title: "Soil & Crop Tips",
-      description: "Track growth and get recommendations",
+      title: t("features.plantTracker"),
+      description: t("features.plantTrackerDesc"),
       icon: Sprout,
       path: "/plant-tracker",
       testId: "card-feature-tracker"
@@ -83,7 +85,7 @@ export default function Dashboard() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-2">
             <h1 className="text-2xl lg:text-3xl font-bold text-green-900 dark:text-green-100" data-testid="text-welcome-title">
-              Welcome, Rajesh Kumar!
+              {t("dashboard.welcome")}, {t("dashboard.farmer")}!
             </h1>
             <p className="text-green-700 dark:text-green-200 flex items-center gap-2" data-testid="text-location">
               <MapPin className="h-4 w-4" />
@@ -96,9 +98,9 @@ export default function Dashboard() {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Current Weather</p>
+                  <p className="text-sm text-muted-foreground">{t("dashboard.currentWeather")}</p>
                   <p className="text-2xl font-bold" data-testid="text-temperature">
-                    {mockWeather.temperature}°C
+                    {mockWeather.temperature}{t("dashboard.temperature")}
                   </p>
                 </div>
                 <Sun className="h-8 w-8 text-yellow-500" />

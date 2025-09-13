@@ -148,7 +148,10 @@ export function ChatInterface() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message: messageToSend }),
+        body: JSON.stringify({ 
+          message: messageToSend,
+          language: language 
+        }),
       })
 
       if (!response.ok) {
@@ -174,7 +177,7 @@ export function ChatInterface() {
       console.error('Chat error:', error)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: "I'm sorry, I'm having trouble connecting to the agricultural assistant right now. Please try again in a moment.",
+        content: t("chat.errorMessage"),
         sender: "ai",
         timestamp: new Date()
       }
@@ -308,7 +311,7 @@ export function ChatInterface() {
         <CardTitle className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Bot className="h-5 w-5 text-primary" />
-            AgriBot Assistant
+            {t("chat.title")}
           </div>
           {isVoiceEnabled && synthRef.current && isSpeaking && (
             <div className="flex gap-1">
@@ -380,7 +383,7 @@ export function ChatInterface() {
                   </AvatarFallback>
                 </Avatar>
                 <div className="bg-muted p-3 rounded-md">
-                  <p className="text-sm">Thinking...</p>
+                  <p className="text-sm">{t("chat.thinking")}</p>
                 </div>
               </div>
             )}
@@ -389,7 +392,7 @@ export function ChatInterface() {
         
         <div className="flex gap-2">
           <Input
-            placeholder="Ask me about farming, crops, diseases..."
+            placeholder={t("chat.placeholder")}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}

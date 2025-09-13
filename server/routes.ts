@@ -14,13 +14,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Agricultural AI Chat endpoint
   app.post("/api/chat", async (req, res) => {
     try {
-      const { message } = req.body;
+      const { message, language } = req.body;
       
       if (!message) {
         return res.status(400).json({ error: "Message is required" });
       }
 
-      const response = await getAgriculturalAdvice(message);
+      const response = await getAgriculturalAdvice(message, language || 'en');
       res.json({ response });
     } catch (error) {
       console.error('Chat API error:', error);
