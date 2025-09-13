@@ -1,0 +1,83 @@
+{
+  "navigation": {
+    "agritech": "एग्रीटेक",
+    "profile": "प्रोफाइल",
+    "settings": "सेटिंग्स",
+    "history": "इतिहास",
+    "logout": "लॉगआउट"
+  },
+  "dashboard": {
+    "welcome": "स्वागत है",
+    "farmer": "किसान",
+    "currentWeather": "वर्तमान मौसम",
+    "temperature": "°सें",
+    "humidity": "नमी",
+    "windSpeed": "हवा की गति",
+    "kmh": "किमी/घंटा",
+    "quickAccess": "त्वरित पहुंच",
+    "tapToAccess": "पहुंचने के लिए टैप करें",
+    "agriculturalNews": "कृषि समाचार"
+  },
+  "features": {
+    "chatbot": "एग्रीबोट से बात करें",
+    "chatbotDesc": "AI से कृषि सलाह प्राप्त करें",
+    "diseaseDetection": "अपने पौधे को स्कैन करें",
+    "diseaseDetectionDesc": "AI से पौधों की बीमारी पहचानें",
+    "mandiPrice": "बाजार की भविष्यवाणी",
+    "mandiPriceDesc": "मंडी के भाव और रुझान देखें",
+    "plantTracker": "मिट्टी और फसल के टिप्स",
+    "plantTrackerDesc": "विकास ट्रैक करें और सुझाव पाएं"
+  },
+  "newsCategories": {
+    "research": "अनुसंधान",
+    "policy": "नीति",
+    "sustainability": "स्थिरता",
+    "technology": "तकनीक",
+    "market": "बाजार"
+  },
+  "chat": {
+    "title": "एग्रीबोट असिस्टेंट",
+    "placeholder": "खेती, फसल, बीमारी के बारे में पूछें...",
+    "microphoneOn": "आवाज इनपुट चालू",
+    "microphoneOff": "आवाज इनपुट बंद",
+    "listening": "सुन रहा है...",
+    "processing": "प्रोसेसिंग...",
+    "speak": "जवाब सुनें",
+    "pause": "जवाब रोकें",
+    "send": "भेजें",
+    "typing": "अपना संदेश टाइप करें..."
+  },
+  "voice": {
+    "micOn": "माइक चालू",
+    "micOff": "माइक बंद",
+    "startListening": "बोलने के लिए टैप करें",
+    "stopListening": "रोकने के लिए टैप करें",
+    "voiceNotSupported": "इस ब्राउज़र में आवाज इनपुट समर्थित नहीं है"
+  },
+  "accessibility": {
+    "languageSelector": "भाषा चुनें",
+    "themeToggle": "थीम बदलें",
+    "profileMenu": "प्रोफाइल मेन्यू"
+  },
+  "diseases": {
+    "title": "पौधों की बीमारी की पहचान",
+    "uploadImage": "पौधे की तस्वीर अपलोड करें",
+    "analyzing": "तस्वीर का विश्लेषण...",
+    "result": "विश्लेषण परिणाम"
+  },
+  "market": {
+    "title": "मंडी मूल्य भविष्यवाणी",
+    "crop": "फसल",
+    "price": "मूल्य",
+    "trend": "रुझान",
+    "location": "स्थान"
+  },
+  "tracker": {
+    "title": "पौधे की वृद्धि ट्रैकर",
+    "addPlant": "नया पौधा जोड़ें",
+    "plantName": "पौधे का नाम",
+    "plantType": "पौधे का प्रकार",
+    "plantedDate": "रोपण की तारीख",
+    "status": "स्थिति"
+  }
+}

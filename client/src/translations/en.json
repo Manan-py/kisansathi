@@ -1,0 +1,83 @@
+{
+  "navigation": {
+    "agritech": "AgriTech",
+    "profile": "Profile",
+    "settings": "Settings",
+    "history": "History",
+    "logout": "Logout"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "farmer": "Farmer",
+    "currentWeather": "Current Weather",
+    "temperature": "°C",
+    "humidity": "Humidity",
+    "windSpeed": "Wind Speed",
+    "kmh": "km/h",
+    "quickAccess": "Quick Access",
+    "tapToAccess": "Tap to access",
+    "agriculturalNews": "Agricultural News"
+  },
+  "features": {
+    "chatbot": "Talk to AgriBot",
+    "chatbotDesc": "Get AI-powered agricultural advice",
+    "diseaseDetection": "Scan your Plant",
+    "diseaseDetectionDesc": "Detect plant diseases with AI",
+    "mandiPrice": "Market Prediction",
+    "mandiPriceDesc": "Check mandi prices and trends",
+    "plantTracker": "Soil & Crop Tips",
+    "plantTrackerDesc": "Track growth and get recommendations"
+  },
+  "newsCategories": {
+    "research": "Research",
+    "policy": "Policy", 
+    "sustainability": "Sustainability",
+    "technology": "Technology",
+    "market": "Market"
+  },
+  "chat": {
+    "title": "AgriBot Assistant",
+    "placeholder": "Ask me about farming, crops, diseases...",
+    "microphoneOn": "Voice Input On",
+    "microphoneOff": "Voice Input Off",
+    "listening": "Listening...",
+    "processing": "Processing...",
+    "speak": "Play Response",
+    "pause": "Pause Response",
+    "send": "Send",
+    "typing": "Type your message..."
+  },
+  "voice": {
+    "micOn": "Mic On",
+    "micOff": "Mic Off",
+    "startListening": "Tap to speak",
+    "stopListening": "Tap to stop",
+    "voiceNotSupported": "Voice input not supported in this browser"
+  },
+  "accessibility": {
+    "languageSelector": "Select Language",
+    "themeToggle": "Toggle Theme",
+    "profileMenu": "Profile Menu"
+  },
+  "diseases": {
+    "title": "Plant Disease Detection",
+    "uploadImage": "Upload Plant Image",
+    "analyzing": "Analyzing image...",
+    "result": "Analysis Result"
+  },
+  "market": {
+    "title": "Mandi Price Prediction",
+    "crop": "Crop",
+    "price": "Price",
+    "trend": "Trend",
+    "location": "Location"
+  },
+  "tracker": {
+    "title": "Plant Growth Tracker",
+    "addPlant": "Add New Plant",
+    "plantName": "Plant Name",
+    "plantType": "Plant Type",
+    "plantedDate": "Planted Date",
+    "status": "Status"
+  }
+}

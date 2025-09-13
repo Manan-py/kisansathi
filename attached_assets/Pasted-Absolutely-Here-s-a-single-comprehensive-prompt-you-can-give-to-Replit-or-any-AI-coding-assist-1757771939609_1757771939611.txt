@@ -1,0 +1,125 @@
+Absolutely! Here’s a **single comprehensive prompt** you can give to Replit (or any AI coding assistant) to **redesign your AgriTech dashboard** and implement the full multilingual + voice-enabled chatbot functionality exactly as you described:
+
+---
+
+### Complete Prompt for Replit — AgriTech Dashboard Redesign + Multilingual Voice Chatbot Feature
+
+````prompt
+We are building a responsive AgriTech web app for farmers using React JS (no TypeScript). Please redesign and implement the following features and UX improvements in one go:
+
+---
+
+1. **Dashboard Redesign (Minimal, Modern, Mobile-First)**
+
+- Create a clean, card-based dashboard layout with distinct sections:
+  - **Welcome Section:** Display greeting with farmer’s name, current location, and current weather summary.
+  - **News Ticker:** A horizontally sliding ticker that cycles through agricultural news headlines one at a time. Each headline shows a category tag (e.g. 🧪 Research, 🌾 Crop) and is swipeable or navigable by arrow buttons.
+  - **Main Feature Cards:** Four main cards for navigation:
+    - Chatbot (“Talk to AgriBot 🤖”)
+    - Disease Detection (“Scan your Plant 🖼️”)
+    - Mandi Price Prediction (“Market Prediction 📈”)
+    - Plant Growth Tracker (“Soil & Crop Tips 🌱”)
+  
+- Add a **sticky top navigation bar** with:
+  - App logo/name
+  - **Language selector** dropdown (English | हिंदी | ਪੰਜਾਬੀ)
+  - Voice input toggle (🎤 Mic On/Off)
+  - Profile avatar with dropdown menu (Profile, History, Logout)
+  - Theme toggle (light/dark)
+
+- Ensure the UI uses **large fonts, clear icons, and high contrast** suitable for low literacy users on mobile devices.
+
+---
+
+2. **Full Multilingual Support (English, Hindi, Punjabi)**
+
+- Use a JSON-based translation system (e.g., `react-i18next` or simple custom hook).
+- All visible text, labels, placeholders, buttons, news headlines, chatbot prompts, and feature content must update dynamically based on the selected language.
+- Persist the language choice in `localStorage` so it remains after reload.
+- Example translation JSON structure:
+
+```json
+{
+  "en": { "welcome": "Welcome", "chat": "Chat with AgriBot" },
+  "hi": { "welcome": "स्वागत है", "chat": "एग्रीबोट से बात करें" },
+  "pa": { "welcome": "ਸੁਆਗਤ ਹੈ", "chat": "ਐਗਰੀਬੋਟ ਨਾਲ ਗੱਲ ਕਰੋ" }
+}
+````
+
+* Language switch should update the entire UI instantly without page reload, including the chatbot interaction language.
+
+---
+
+3. **Chatbot Page with Voice Input & Voice Output**
+
+* Implement a chatbot interface integrated with Gemini API that supports:
+
+  * **Voice input** using the Web Speech API microphone.
+  * Text input fallback.
+  * Display user and AI messages in chat bubbles.
+  * Show loading indicator while waiting for AI response.
+
+* Once AI response is received:
+
+  * Use Text-to-Speech API to **read the response aloud** in the selected UI language.
+  * Provide **play** and **pause** buttons to control voice playback.
+  * Automatically switch TTS language to match the current language selection.
+
+* The chatbot should pre-load the user’s current location as context and send it with every query for localized advice.
+
+* Add a large, easy-to-access microphone button to start/stop voice input.
+
+---
+
+4. **Accessibility & Mobile Usability**
+
+* Ensure all interactive elements (buttons, toggles, cards) are at least 44x44 pixels.
+* Use clear icons with alt text.
+* Avoid hover-only interactions.
+* Use high-contrast colors and readable fonts.
+* Test on small mobile screens with vertical scrolling.
+
+---
+
+5. **Tech Stack Requirements**
+
+* React JS (JavaScript only)
+* Use FastAPI backend for:
+
+  * Weather data
+  * Soil & crop advice
+  * Mandi price predictions
+* Use Google Translate API or manual JSON files for translations.
+* Use Web Speech API for voice input/output.
+* Simple modular folder structure:
+
+```
+/src
+  /components
+  /pages
+  /translations
+  /assets
+  App.js
+```
+
+---
+
+Please provide clean, modular React component code with comments, following best practices for readability and scalability. Include:
+
+* Dashboard with language toggle and news ticker
+* Fully multilingual chatbot with voice input/output and pause/play controls
+* Responsive styling suitable for low literacy farmers on mobile devices
+* Integration points with FastAPI backend and Gemini API for chat
+
+---
+
+This implementation should enable farmers to seamlessly switch languages, interact with the chatbot via voice/text, receive voice responses, and navigate a modern, minimal dashboard with all relevant agri-features.
+
+Thank you!
+
+```
+
+---
+
+If you want, I can also help by generating starter React components or the i18n JSON files for this setup!
+```

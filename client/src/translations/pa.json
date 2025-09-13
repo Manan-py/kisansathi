@@ -1,0 +1,83 @@
+{
+  "navigation": {
+    "agritech": "ਐਗਰੀਟੈਕ",
+    "profile": "ਪ੍ਰੋਫਾਈਲ",
+    "settings": "ਸੈਟਿੰਗਜ਼",
+    "history": "ਇਤਿਹਾਸ",
+    "logout": "ਲਾਗਆਉਟ"
+  },
+  "dashboard": {
+    "welcome": "ਸੁਆਗਤ ਹੈ",
+    "farmer": "ਕਿਸਾਨ",
+    "currentWeather": "ਮੌਜੂਦਾ ਮੌਸਮ",
+    "temperature": "°ਸੈਂ",
+    "humidity": "ਨਮੀ",
+    "windSpeed": "ਹਵਾ ਦੀ ਗਤੀ",
+    "kmh": "ਕਿਮੀ/ਘੰਟਾ",
+    "quickAccess": "ਤੁਰੰਤ ਪਹੁੰਚ",
+    "tapToAccess": "ਪਹੁੰਚਣ ਲਈ ਟੈਪ ਕਰੋ",
+    "agriculturalNews": "ਖੇਤੀਬਾੜੀ ਦੀਆਂ ਖਬਰਾਂ"
+  },
+  "features": {
+    "chatbot": "ਐਗਰੀਬੋਟ ਨਾਲ ਗੱਲ ਕਰੋ",
+    "chatbotDesc": "AI ਤੋਂ ਖੇਤੀਬਾੜੀ ਦੀ ਸਲਾਹ ਲਓ",
+    "diseaseDetection": "ਆਪਣੇ ਪੌਧੇ ਨੂੰ ਸਕੈਨ ਕਰੋ",
+    "diseaseDetectionDesc": "AI ਨਾਲ ਪੌਧਿਆਂ ਦੀ ਬਿਮਾਰੀ ਪਹਿਚਾਣੋ",
+    "mandiPrice": "ਮਾਰਕੀਟ ਭਵਿੱਖਬਾਣੀ",
+    "mandiPriceDesc": "ਮੰਡੀ ਦੇ ਭਾਅ ਅਤੇ ਰੁਝਾਨ ਦੇਖੋ",
+    "plantTracker": "ਮਿੱਟੀ ਅਤੇ ਫਸਲ ਦੇ ਟਿਪਸ",
+    "plantTrackerDesc": "ਵਿਕਾਸ ਟਰੈਕ ਕਰੋ ਅਤੇ ਸੁਝਾਅ ਲਓ"
+  },
+  "newsCategories": {
+    "research": "ਖੋਜ",
+    "policy": "ਨੀਤੀ",
+    "sustainability": "ਸਥਿਰਤਾ",
+    "technology": "ਤਕਨਾਲੋਜੀ",
+    "market": "ਮਾਰਕੀਟ"
+  },
+  "chat": {
+    "title": "ਐਗਰੀਬੋਟ ਅਸਿਸਟੈਂਟ",
+    "placeholder": "ਖੇਤੀ, ਫਸਲ, ਬਿਮਾਰੀ ਬਾਰੇ ਪੁੱਛੋ...",
+    "microphoneOn": "ਆਵਾਜ਼ ਇਨਪੁਟ ਚਾਲੂ",
+    "microphoneOff": "ਆਵਾਜ਼ ਇਨਪੁਟ ਬੰਦ",
+    "listening": "ਸੁਣ ਰਿਹਾ ਹੈ...",
+    "processing": "ਪ੍ਰੋਸੈਸਿੰਗ...",
+    "speak": "ਜਵਾਬ ਸੁਣੋ",
+    "pause": "ਜਵਾਬ ਰੋਕੋ",
+    "send": "ਭੇਜੋ",
+    "typing": "ਆਪਣਾ ਸੰਦੇਸ਼ ਟਾਈਪ ਕਰੋ..."
+  },
+  "voice": {
+    "micOn": "ਮਾਈਕ ਚਾਲੂ",
+    "micOff": "ਮਾਈਕ ਬੰਦ",
+    "startListening": "ਬੋਲਣ ਲਈ ਟੈਪ ਕਰੋ",
+    "stopListening": "ਰੋਕਣ ਲਈ ਟੈਪ ਕਰੋ",
+    "voiceNotSupported": "ਇਸ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਆਵਾਜ਼ ਇਨਪੁਟ ਸਪੋਰਟ ਨਹੀਂ ਹੈ"
+  },
+  "accessibility": {
+    "languageSelector": "ਭਾਸ਼ਾ ਚੁਣੋ",
+    "themeToggle": "ਥੀਮ ਬਦਲੋ",
+    "profileMenu": "ਪ੍ਰੋਫਾਈਲ ਮੀਨੂ"
+  },
+  "diseases": {
+    "title": "ਪੌਧਿਆਂ ਦੀ ਬਿਮਾਰੀ ਦੀ ਪਹਿਚਾਣ",
+    "uploadImage": "ਪੌਧੇ ਦੀ ਤਸਵੀਰ ਅਪਲੋਡ ਕਰੋ",
+    "analyzing": "ਤਸਵੀਰ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ...",
+    "result": "ਵਿਸ਼ਲੇਸ਼ਣ ਨਤੀਜਾ"
+  },
+  "market": {
+    "title": "ਮੰਡੀ ਕੀਮਤ ਭਵਿੱਖਬਾਣੀ",
+    "crop": "ਫਸਲ",
+    "price": "ਕੀਮਤ",
+    "trend": "ਰੁਝਾਨ",
+    "location": "ਸਥਾਨ"
+  },
+  "tracker": {
+    "title": "ਪੌਧੇ ਦੀ ਵਿਕਾਸ ਟਰੈਕਰ",
+    "addPlant": "ਨਵਾਂ ਪੌਧਾ ਜੋੜੋ",
+    "plantName": "ਪੌਧੇ ਦਾ ਨਾਮ",
+    "plantType": "ਪੌਧੇ ਦੀ ਕਿਸਮ",
+    "plantedDate": "ਰੋਪਣ ਦੀ ਤਾਰੀਖ",
+    "status": "ਸਥਿਤੀ"
+  }
+}
