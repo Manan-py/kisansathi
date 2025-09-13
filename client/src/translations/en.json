@@ -38,6 +38,10 @@
   "chat": {
     "title": "AgriBot Assistant",
     "placeholder": "Ask me about farming, crops, diseases...",
+    "welcomeMessage": "Hello! I'm your AI agricultural assistant. How can I help you today? You can ask me about crop diseases, weather patterns, irrigation schedules, or any farming-related questions.",
+    "errorMessage": "I'm sorry, I'm having trouble connecting to the agricultural assistant right now. Please try again in a moment.",
+    "thinking": "Thinking...",
+    "sendMessage": "Send message",
     "microphoneOn": "Voice Input On",
     "microphoneOff": "Voice Input Off",
     "listening": "Listening...",
@@ -52,6 +56,9 @@
     "micOff": "Mic Off",
     "startListening": "Tap to speak",
     "stopListening": "Tap to stop",
+    "stopSpeaking": "Stop speaking",
+    "pauseSpeaking": "Pause speech",
+    "resumeSpeaking": "Resume speech",
     "voiceNotSupported": "Voice input not supported in this browser"
   },
   "accessibility": {
