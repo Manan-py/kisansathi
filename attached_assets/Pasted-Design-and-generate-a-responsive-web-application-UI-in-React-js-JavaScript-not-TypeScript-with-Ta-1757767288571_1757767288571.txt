@@ -1,0 +1,47 @@
+Design and generate a responsive web application UI in React.js (JavaScript, not TypeScript) with Tailwind CSS.  
+The app is for farmers and should have a clean, modern, and highly usable UX, optimized for both desktop and mobile.  
+
+🔹 Color palette:  
+- Primary Green: #4CAF50  
+- Accent Yellow: #FBC02D  
+- Orange: #E87E04  
+- Red: #F55F55  
+- Neutral background shades (light gray / white)  
+
+🔹 Pages & Features to design:  
+
+1. **Dashboard Page**  
+   - Farmer profile section with name, location, and soil type.  
+   - History/usage data section (simple card layout).  
+   - News section: sliding text ticker with agriculture-related news from an API.  
+
+2. **Chatbot Page**  
+   - Simple chat UI (like WhatsApp style) with AI avatar.  
+   - Input field with support for text and voice.  
+   - Messages should appear in chat bubbles, farmer’s messages on the right (green), AI responses on the left (light gray).  
+
+3. **Disease Detection Page**  
+   - Upload image card (drag-and-drop or upload button).  
+   - Preview of uploaded image.  
+   - Results section: Detected disease + solution displayed in a styled card with icons.  
+
+4. **Mandi Price Prediction Page**  
+   - Input: Crop name & location.  
+   - Output: Predicted mandi price and suggestion shown in a styled chart/card.  
+
+5. **Plant Growth Tracker Page**  
+   - Weather details card (temperature, rainfall, humidity, etc).  
+   - Irrigation advice (when to water, how much).  
+   - Recommendation: Which crop to grow in given soil type.  
+   - Fertilizer/soil health advice in simple info cards.  
+
+🔹 UI Guidelines:  
+- Use **cards with rounded corners, soft shadows, and padding** for each section.  
+- Typography: Clear, large headings (farmers may have low literacy).  
+- Icons: Use relevant icons (weather, crops, soil, chatbot, etc).  
+- Keep navigation simple: top or side navbar with icons + text (Dashboard, Chatbot, Disease Detection, Mandi Prices, Growth Tracker).  
+- Include a floating action button for **voice assistant** on every page (mic icon, red #F55F55).  
+- Multilingual toggle (English, Hindi, Punjabi) at the top-right corner.  
+- Responsive design: stack sections vertically on mobile.  
+
+Output clean **React.js components** with Tailwind classes, one file per page. Avoid over-complicated structure.  
