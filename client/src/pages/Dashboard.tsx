@@ -6,7 +6,6 @@ import { NewsTicker } from "@/components/NewsTicker"
 import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Dashboard() {
-  const { t } = useLanguage()
   
   //todo: remove mock functionality
   const mockWeather = {
@@ -49,29 +48,29 @@ export default function Dashboard() {
 
   const featureCards = [
     {
-      title: t("features.chatbot"),
-      description: t("features.chatbotDesc"),
+      title: "Talk to AgriBot",
+      description: "Get AI-powered agricultural advice",
       icon: MessageSquare,
       path: "/chat",
       testId: "card-feature-chatbot"
     },
     {
-      title: t("features.diseaseDetection"),
-      description: t("features.diseaseDetectionDesc"),
+      title: "Scan your Plant",
+      description: "Detect plant diseases with AI",
       icon: Camera,
       path: "/disease-detection",
       testId: "card-feature-disease"
     },
     {
-      title: t("features.mandiPrice"),
-      description: t("features.mandiPriceDesc"),
+      title: "Market Prediction",
+      description: "Check mandi prices and trends",
       icon: TrendingUp,
       path: "/market-prices",
       testId: "card-feature-market"
     },
     {
-      title: t("features.plantTracker"),
-      description: t("features.plantTrackerDesc"),
+      title: "Soil & Crop Tips",
+      description: "Track growth and get recommendations",
       icon: Sprout,
       path: "/plant-tracker",
       testId: "card-feature-tracker"
@@ -85,7 +84,7 @@ export default function Dashboard() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-2">
             <h1 className="text-2xl lg:text-3xl font-bold text-green-900 dark:text-green-100" data-testid="text-welcome-title">
-              {t("dashboard.welcome")}, {t("dashboard.farmer")}!
+              Welcome, Farmer!
             </h1>
             <p className="text-green-700 dark:text-green-200 flex items-center gap-2" data-testid="text-location">
               <MapPin className="h-4 w-4" />
@@ -98,9 +97,9 @@ export default function Dashboard() {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">{t("dashboard.currentWeather")}</p>
+                  <p className="text-sm text-muted-foreground">Current Weather</p>
                   <p className="text-2xl font-bold" data-testid="text-temperature">
-                    {mockWeather.temperature}{t("dashboard.temperature")}
+                    {mockWeather.temperature}°C
                   </p>
                 </div>
                 <Sun className="h-8 w-8 text-yellow-500" />

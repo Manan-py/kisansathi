@@ -1,11 +1,12 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { translationService } from '../services/translationService'
 
 export type Language = 'en' | 'hi' | 'pa'
 
 interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
-  t: (key: string) => string
+  translate: (text: string) => Promise<string>
   isRTL: boolean
 }
 
@@ -17,7 +18,6 @@ interface LanguageProviderProps {
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const [language, setLanguageState] = useState<Language>('en')
-  const [translations, setTranslations] = useState<Record<string, any>>({})
 
   useEffect(() => {
     // Load saved language from localStorage
@@ -27,44 +27,20 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     }
   }, [])
 
-  useEffect(() => {
-    // Load translations for current language
-    const loadTranslations = async () => {
-      try {
-        const translationModule = await import(`../translations/${language}.json`)
-        setTranslations(translationModule.default)
-      } catch (error) {
-        console.error('Failed to load translations:', error)
-        // Fallback to English if translation loading fails
-        if (language !== 'en') {
-          const fallbackModule = await import('../translations/en.json')
-          setTranslations(fallbackModule.default)
-        }
-      }
-    }
-    
-    loadTranslations()
-  }, [language])
-
   const setLanguage = (lang: Language) => {
     setLanguageState(lang)
     localStorage.setItem('agritech-language', lang)
   }
 
-  const t = (key: string): string => {
-    const keys = key.split('.')
-    let value: any = translations
+  const translate = async (text: string): Promise<string> => {
+    if (language === 'en') return text
     
-    for (const k of keys) {
-      if (value && typeof value === 'object' && k in value) {
-        value = value[k]
-      } else {
-        // Return the key if translation is not found
-        return key
-      }
+    try {
+      return await translationService.translateText(text, language, 'en')
+    } catch (error) {
+      console.error('Translation failed:', error)
+      return text
     }
-    
-    return typeof value === 'string' ? value : key
   }
 
   const isRTL = false // None of our supported languages are RTL
@@ -72,7 +48,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   const value: LanguageContextType = {
     language,
     setLanguage,
-    t,
+    translate,
     isRTL
   }
 

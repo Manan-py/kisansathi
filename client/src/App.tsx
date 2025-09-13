@@ -38,7 +38,6 @@ function Router() {
 }
 
 function AppContent() {
-  const { t } = useLanguage();
   const style = {
     "--sidebar-width": "20rem",
     "--sidebar-width-icon": "4rem",
@@ -60,7 +59,7 @@ function AppContent() {
               <SidebarTrigger data-testid="button-sidebar-toggle" />
               <h1 className="font-bold text-lg text-primary hidden sm:flex items-center gap-2">
                 <Sprout className="h-5 w-5" />
-                {t('navigation.agritech')}
+                AgriTech
               </h1>
             </div>
             <div className="flex items-center gap-1">

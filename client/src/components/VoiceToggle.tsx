@@ -9,7 +9,7 @@ interface VoiceToggleProps {
 }
 
 export function VoiceToggle({ isVoiceEnabled: propVoiceEnabled, onToggle: propOnToggle }: VoiceToggleProps) {
-  const { t } = useLanguage()
+  const { } = useLanguage()
   const { isVoiceEnabled: contextVoiceEnabled, setIsVoiceEnabled } = useVoice()
   
   const isVoiceEnabled = propVoiceEnabled !== undefined ? propVoiceEnabled : contextVoiceEnabled
@@ -21,7 +21,7 @@ export function VoiceToggle({ isVoiceEnabled: propVoiceEnabled, onToggle: propOn
       size="icon"
       onClick={() => onToggle(!isVoiceEnabled)}
       className="h-11 w-11"
-      aria-label={isVoiceEnabled ? t('voice.micOn') : t('voice.micOff')}
+      aria-label={isVoiceEnabled ? 'Mic On' : 'Mic Off'}
       data-testid="button-voice-toggle"
     >
       {isVoiceEnabled ? (

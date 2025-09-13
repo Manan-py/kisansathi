@@ -9,7 +9,7 @@ import {
 import { useLanguage, type Language } from "@/contexts/LanguageContext"
 
 export function LanguageSelector() {
-  const { language, setLanguage, t } = useLanguage()
+  const { language, setLanguage } = useLanguage()
 
   const languages: { code: Language; name: string; nativeName: string }[] = [
     { code: 'en', name: 'English', nativeName: 'English' },
@@ -24,7 +24,7 @@ export function LanguageSelector() {
           variant="ghost"
           size="icon"
           className="h-11 w-11"
-          aria-label={t('accessibility.languageSelector')}
+          aria-label="Select Language"
           data-testid="button-language-selector"
         >
           <Languages className="h-5 w-5" />
