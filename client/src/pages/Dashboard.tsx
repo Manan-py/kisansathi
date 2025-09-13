@@ -3,10 +3,8 @@ import { MessageSquare, Camera, TrendingUp, Sprout, Sun, Droplets, Wind, MapPin,
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { NewsTicker } from "@/components/NewsTicker"
-import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Dashboard() {
-  const { t } = useLanguage()
   
   //todo: remove mock functionality
   const mockWeather = {
@@ -49,29 +47,29 @@ export default function Dashboard() {
 
   const featureCards = [
     {
-      title: t("features.chatbot"),
-      description: t("features.chatbotDesc"),
+      title: "Talk to AgriBot",
+      description: "Get AI-powered agricultural advice",
       icon: MessageSquare,
       path: "/chat",
       testId: "card-feature-chatbot"
     },
     {
-      title: t("features.diseaseDetection"),
-      description: t("features.diseaseDetectionDesc"),
+      title: "Scan your Plant",
+      description: "Detect plant diseases with AI",
       icon: Camera,
       path: "/disease-detection",
       testId: "card-feature-disease"
     },
     {
-      title: t("features.mandiPrice"),
-      description: t("features.mandiPriceDesc"),
+      title: "Market Prediction",
+      description: "Check mandi prices and trends",
       icon: TrendingUp,
       path: "/market-prices",
       testId: "card-feature-market"
     },
     {
-      title: t("features.plantTracker"),
-      description: t("features.plantTrackerDesc"),
+      title: "Soil & Crop Tips",
+      description: "Track growth and get recommendations",
       icon: Sprout,
       path: "/plant-tracker",
       testId: "card-feature-tracker"
@@ -85,7 +83,7 @@ export default function Dashboard() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="space-y-2">
             <h1 className="text-2xl lg:text-3xl font-bold text-green-900 dark:text-green-100" data-testid="text-welcome-title">
-              {t("dashboard.welcome")}, Rajesh Kumar!
+              Welcome, Rajesh Kumar!
             </h1>
             <p className="text-green-700 dark:text-green-200 flex items-center gap-2" data-testid="text-location">
               <MapPin className="h-4 w-4" />
@@ -98,9 +96,9 @@ export default function Dashboard() {
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">{t("dashboard.currentWeather")}</p>
+                  <p className="text-sm text-muted-foreground">Current Weather</p>
                   <p className="text-2xl font-bold" data-testid="text-temperature">
-                    {mockWeather.temperature}{t("dashboard.temperature")}
+                    {mockWeather.temperature}°C
                   </p>
                 </div>
                 <Sun className="h-8 w-8 text-yellow-500" />
@@ -112,7 +110,7 @@ export default function Dashboard() {
                 </div>
                 <div className="flex items-center gap-1">
                   <Wind className="h-4 w-4" />
-                  <span>{mockWeather.windSpeed} {t("dashboard.kmh")}</span>
+                  <span>{mockWeather.windSpeed} km/h</span>
                 </div>
               </div>
             </CardContent>
@@ -129,7 +127,7 @@ export default function Dashboard() {
       <div className="space-y-4">
         <h2 className="text-xl font-semibold mb-4 flex items-center gap-2" data-testid="text-features-header">
           <Rocket className="h-5 w-5" />
-          {t("dashboard.quickAccess")}
+          Quick Access
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -159,7 +157,7 @@ export default function Dashboard() {
                   <CardContent className="pt-0">
                     <div className="flex items-center justify-between">
                       <Badge variant="secondary" className="text-xs">
-                        {t("dashboard.tapToAccess")}
+                        Tap to access
                       </Badge>
                       <IconComponent className="h-5 w-5 text-primary" />
                     </div>

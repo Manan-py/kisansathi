@@ -3,7 +3,6 @@ import { ChevronLeft, ChevronRight, Newspaper, Play, Pause, FlaskConical, FileTe
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { useLanguage } from "@/contexts/LanguageContext"
 
 interface NewsItem {
   id: string
@@ -21,7 +20,6 @@ interface NewsTickerProps {
 
 export function NewsTicker({ news }: NewsTickerProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
-  const { t } = useLanguage()
 
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
@@ -52,7 +50,7 @@ export function NewsTicker({ news }: NewsTickerProps) {
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-lg font-semibold flex items-center gap-2" data-testid="text-news-header">
           <Newspaper className="h-5 w-5" />
-          {t("dashboard.agriculturalNews")}
+          Agricultural News
         </h2>
         <div className="flex items-center gap-2">
           <Button
@@ -95,7 +93,7 @@ export function NewsTicker({ news }: NewsTickerProps) {
         <div className="flex items-center gap-2">
           <Badge variant="secondary" className="flex items-center gap-1" data-testid={`badge-category-${currentNews.category.toLowerCase()}`}>
             {getCategoryIcon(currentNews.category)}
-            {t(`newsCategories.${currentNews.category.toLowerCase()}`) || currentNews.category}
+            {currentNews.category}
           </Badge>
           <span className="text-sm text-muted-foreground">
             {currentNews.publishedAt}

@@ -2,7 +2,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useLanguage } from "@/contexts/LanguageContext"
 
 interface NewsItem {
   id: string
@@ -20,12 +19,11 @@ interface NewsCardProps {
 }
 
 export function NewsCard({ news }: NewsCardProps) {
-  const { t } = useLanguage()
   
   return (
     <Card data-testid="card-news">
       <CardHeader>
-        <CardTitle>{t("news.title")}</CardTitle>
+        <CardTitle>Latest News</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="space-y-4 max-h-96 overflow-y-auto">
@@ -60,7 +58,7 @@ export function NewsCard({ news }: NewsCardProps) {
                   onClick={() => console.log('Opening news article:', item.sourceUrl)}
                 >
                   <ExternalLink className="h-3 w-3 mr-1" />
-                  {t("news.read")}
+                  Read
                 </Button>
               </div>
             </div>

@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Send, Bot, User, Mic, MicOff, Volume2, VolumeX } from "lucide-react"
-import { useLanguage } from "@/contexts/LanguageContext"
 import { useVoice } from "@/contexts/VoiceContext"
 
 // Web Speech API type declarations
@@ -57,13 +56,12 @@ interface Message {
 }
 
 export function ChatInterface() {
-  const { t, language } = useLanguage()
   const { isVoiceEnabled } = useVoice()
   
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content: t("chat.welcomeMessage"),
+      content: "Hello! I'm your AI agricultural assistant. How can I help you today? You can ask me about crop diseases, weather patterns, irrigation schedules, or any farming-related questions.",
       sender: "ai",
       timestamp: new Date()
     }
@@ -99,7 +97,7 @@ export function ChatInterface() {
             'hi': 'hi-IN', 
             'pa': 'pa-IN'
           }
-          recognitionRef.current.lang = langMap[language] || 'en-US'
+          recognitionRef.current.lang = 'en-US'
         }
       }
       
@@ -127,7 +125,7 @@ export function ChatInterface() {
         synthRef.current.cancel()
       }
     }
-  }, [language])
+  }, [])
 
   const handleSendMessage = async (messageText?: string) => {
     const messageToSend = messageText || input.trim()
@@ -176,7 +174,7 @@ export function ChatInterface() {
       console.error('Chat error:', error)
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: t("chat.errorMessage"),
+        content: "I'm sorry, I'm having trouble connecting to the agricultural assistant right now. Please try again in a moment.",
         sender: "ai",
         timestamp: new Date()
       }
@@ -216,7 +214,7 @@ export function ChatInterface() {
       'hi': 'hi-IN',
       'pa': 'pa-IN'
     }
-    const targetLang = langMap[language] || 'en-US'
+    const targetLang = 'en-US'
     const voice = findBestVoice(targetLang)
     
     if (voice) {
@@ -310,7 +308,7 @@ export function ChatInterface() {
         <CardTitle className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Bot className="h-5 w-5 text-primary" />
-            {t("chat.title")}
+            AgriBot Assistant
           </div>
           {isVoiceEnabled && synthRef.current && isSpeaking && (
             <div className="flex gap-1">
@@ -319,7 +317,7 @@ export function ChatInterface() {
                 size="icon"
                 onClick={pauseResumeSpeaking}
                 className="h-11 w-11"
-                aria-label={isPaused ? t("voice.resumeSpeaking") : t("voice.pauseSpeaking")}
+                aria-label={isPaused ? "Resume Speaking" : "Pause Speaking"}
                 data-testid="button-pause-resume-speaking"
               >
                 {isPaused ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
@@ -329,7 +327,7 @@ export function ChatInterface() {
                 size="icon"
                 onClick={stopSpeaking}
                 className="h-11 w-11"
-                aria-label={t("voice.stopSpeaking")}
+                aria-label="Stop Speaking"
                 data-testid="button-stop-speaking"
               >
                 <VolumeX className="h-4 w-4" />
@@ -382,7 +380,7 @@ export function ChatInterface() {
                   </AvatarFallback>
                 </Avatar>
                 <div className="bg-muted p-3 rounded-md">
-                  <p className="text-sm">{t("chat.thinking")}</p>
+                  <p className="text-sm">Thinking...</p>
                 </div>
               </div>
             )}
@@ -391,7 +389,7 @@ export function ChatInterface() {
         
         <div className="flex gap-2">
           <Input
-            placeholder={t("chat.placeholder")}
+            placeholder="Ask me about farming, crops, diseases..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
@@ -407,7 +405,7 @@ export function ChatInterface() {
               onClick={isListening ? stopListening : startListening}
               disabled={isLoading}
               className={`h-11 w-11 ${isListening ? "bg-red-500 hover:bg-red-600 text-white" : ""}`}
-              aria-label={isListening ? t("voice.stopListening") : t("voice.startListening")}
+              aria-label={isListening ? "Stop Listening" : "Start Listening"}
               data-testid="button-voice-input"
             >
               {isListening ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
@@ -419,7 +417,7 @@ export function ChatInterface() {
             disabled={isLoading || !input.trim() || isListening}
             className="h-11 w-11"
             size="icon"
-            aria-label={t("chat.sendMessage")}
+            aria-label="Send message"
             data-testid="button-send-message"
           >
             <Send className="h-4 w-4" />

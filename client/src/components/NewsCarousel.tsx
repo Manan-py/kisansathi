@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Clock, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
-import { useLanguage } from "@/contexts/LanguageContext"
 
 interface NewsItem {
   id: string
@@ -21,7 +20,6 @@ interface NewsCarouselProps {
 }
 
 export function NewsCarousel({ news }: NewsCarouselProps) {
-  const { t } = useLanguage()
   const [currentIndex, setCurrentIndex] = useState(0)
 
   // Auto-advance carousel every 5 seconds
@@ -83,7 +81,7 @@ export function NewsCarousel({ news }: NewsCarouselProps) {
                 data-testid={`button-read-${currentItem.id}`}
               >
                 <ExternalLink className="h-3 w-3 mr-1" />
-                {t("news.read")}
+                Read
               </Button>
             </div>
           </div>
@@ -95,7 +93,7 @@ export function NewsCarousel({ news }: NewsCarouselProps) {
               size="icon"
               onClick={prevSlide}
               className="h-8 w-8 bg-background/20 hover:bg-background/40 backdrop-blur-sm"
-              aria-label={t("news.previous")}
+              aria-label="Previous news"
               data-testid="button-prev-news"
             >
               <ChevronLeft className="h-4 w-4" />
@@ -108,7 +106,7 @@ export function NewsCarousel({ news }: NewsCarouselProps) {
               size="icon"
               onClick={nextSlide}
               className="h-8 w-8 bg-background/20 hover:bg-background/40 backdrop-blur-sm"
-              aria-label={t("news.next")}
+              aria-label="Next news"
               data-testid="button-next-news"
             >
               <ChevronRight className="h-4 w-4" />
