@@ -1,6 +1,5 @@
 import { WeatherWidget } from "@/components/WeatherWidget"
-import { NewsCard } from "@/components/NewsCard"
-import { ProfileCard } from "@/components/ProfileCard"
+import { NewsCarousel } from "@/components/NewsCarousel"
 import heroImage from "@assets/generated_images/Agricultural_dashboard_hero_background_56601aa9.png"
 
 export default function Dashboard() {
@@ -50,14 +49,6 @@ export default function Dashboard() {
     }
   ]
 
-  const mockProfile = {
-    name: "Rajesh Kumar",
-    role: "Farm Owner", 
-    location: "Ludhiana, Punjab",
-    joinDate: "March 2023",
-    farmSize: "25 acres",
-    mainCrops: ["Wheat", "Rice", "Corn", "Sugarcane"]
-  }
 
   return (
     <div className="space-y-6" data-testid="page-dashboard">
@@ -80,14 +71,9 @@ export default function Dashboard() {
       </div>
 
       {/* Dashboard Grid */}
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 space-y-6">
-          <WeatherWidget weather={mockWeather} />
-          <NewsCard news={mockNews} />
-        </div>
-        <div>
-          <ProfileCard profile={mockProfile} />
-        </div>
+      <div className="space-y-6">
+        <NewsCarousel news={mockNews} />
+        <WeatherWidget weather={mockWeather} />
       </div>
     </div>
   )

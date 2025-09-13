@@ -36,20 +36,45 @@ export function ChatInterface() {
     }
 
     setMessages(prev => [...prev, userMessage])
+    const currentInput = input
     setInput("")
     setIsLoading(true)
 
-    // Simulate AI response
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message: currentInput }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to get AI response')
+      }
+
+      const data = await response.json()
+      
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
-        content: `I understand you're asking about: "${input}". As an agricultural AI assistant, I can provide information about farming techniques, crop management, disease identification, and sustainable practices. For specific issues, I recommend consulting with local agricultural extension services.`,
+        content: data.response,
         sender: "ai",
         timestamp: new Date()
       }
+      
       setMessages(prev => [...prev, aiMessage])
+    } catch (error) {
+      console.error('Chat error:', error)
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: "I'm sorry, I'm having trouble connecting to the agricultural assistant right now. Please try again in a moment.",
+        sender: "ai",
+        timestamp: new Date()
+      }
+      setMessages(prev => [...prev, errorMessage])
+    } finally {
       setIsLoading(false)
-    }, 1000)
+    }
   }
 
   return (

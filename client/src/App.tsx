@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { UserProfileIcon } from "@/components/UserProfileIcon";
 import Dashboard from "@/pages/Dashboard";
 import Chat from "@/pages/Chat";
 import DiseaseDetectionPage from "@/pages/DiseaseDetectionPage";
@@ -36,6 +37,12 @@ export default function App() {
     "--sidebar-width-icon": "4rem",
   };
 
+  //todo: remove mock functionality  
+  const userProfile = {
+    name: "Rajesh Kumar",
+    role: "Farm Owner"
+  };
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -45,7 +52,10 @@ export default function App() {
             <div className="flex flex-col flex-1">
               <header className="flex items-center justify-between p-4 border-b bg-background">
                 <SidebarTrigger data-testid="button-sidebar-toggle" />
-                <ThemeToggle />
+                <div className="flex items-center gap-2">
+                  <UserProfileIcon profile={userProfile} />
+                  <ThemeToggle />
+                </div>
               </header>
               <main className="flex-1 overflow-auto p-6 bg-background">
                 <Router />
