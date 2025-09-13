@@ -73,18 +73,74 @@
     "result": "Analysis Result"
   },
   "market": {
-    "title": "Mandi Price Prediction",
+    "title": "Market Prices",
     "crop": "Crop",
     "price": "Price",
     "trend": "Trend",
-    "location": "Location"
+    "location": "Location",
+    "refresh": "Refresh",
+    "pricePrediction": "Price Prediction",
+    "nextWeek": "Next Week:",
+    "nextMonth": "Next Month:",
+    "priceTrend": "Price Trend (Last 7 Days)",
+    "lastUpdated": "Last updated:",
+    "recommendation": {
+      "buy": "BUY",
+      "sell": "SELL",
+      "hold": "HOLD"
+    },
+    "tooltipPrice": "Price",
+    "tooltipDate": "Date:"
   },
   "tracker": {
     "title": "Plant Growth Tracker",
-    "addPlant": "Add New Plant",
+    "addPlant": "Add Plant",
     "plantName": "Plant Name",
     "plantType": "Plant Type",
     "plantedDate": "Planted Date",
-    "status": "Status"
+    "status": "Status",
+    "tabs": {
+      "overview": "Overview",
+      "details": "Plant Details",
+      "schedule": "Care Schedule"
+    },
+    "metrics": {
+      "health": "Health",
+      "healthScore": "Health Score",
+      "growthProgress": "Growth Progress",
+      "harvestIn": "Harvest in {days} days"
+    },
+    "stages": {
+      "seedling": "Seedling",
+      "vegetative": "Vegetative",
+      "flowering": "Flowering",
+      "fruiting": "Fruiting",
+      "harvest": "Harvest"
+    },
+    "sections": {
+      "plantInformation": "Plant Information",
+      "growthMetrics": "Growth Metrics",
+      "recommendations": "AI Recommendations",
+      "wateringSchedule": "Watering Schedule",
+      "fertilizerSchedule": "Fertilizer Schedule"
+    },
+    "labels": {
+      "variety": "Variety:",
+      "planted": "Planted:",
+      "stage": "Stage:",
+      "next": "Next:"
+    },
+    "actions": {
+      "water": "Water",
+      "fertilize": "Fertilize"
+    }
+  },
+  "news": {
+    "title": "Agricultural News",
+    "read": "Read",
+    "previous": "Previous news article",
+    "next": "Next news article",
+    "pause": "Pause auto-advance",
+    "resume": "Resume auto-advance"
   }
 }

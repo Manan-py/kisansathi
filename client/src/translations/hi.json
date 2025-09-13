@@ -73,18 +73,74 @@
     "result": "विश्लेषण परिणाम"
   },
   "market": {
-    "title": "मंडी मूल्य भविष्यवाणी",
+    "title": "बाजार की कीमतें",
     "crop": "फसल",
-    "price": "मूल्य",
+    "price": "कीमत",
     "trend": "रुझान",
-    "location": "स्थान"
+    "location": "स्थान",
+    "refresh": "रीफ्रेश",
+    "pricePrediction": "कीमत की भविष्यवाणी",
+    "nextWeek": "अगला सप्ताह:",
+    "nextMonth": "अगला महीना:",
+    "priceTrend": "कीमत का रुझान (पिछले 7 दिन)",
+    "lastUpdated": "अंतिम अपडेट:",
+    "recommendation": {
+      "buy": "खरीदें",
+      "sell": "बेचें",
+      "hold": "रखें"
+    },
+    "tooltipPrice": "कीमत",
+    "tooltipDate": "दिनांक:"
   },
   "tracker": {
     "title": "पौधे की वृद्धि ट्रैकर",
-    "addPlant": "नया पौधा जोड़ें",
+    "addPlant": "पौधा जोड़ें",
     "plantName": "पौधे का नाम",
     "plantType": "पौधे का प्रकार",
     "plantedDate": "रोपण की तारीख",
-    "status": "स्थिति"
+    "status": "स्थिति",
+    "tabs": {
+      "overview": "अवलोकन",
+      "details": "पौधे का विवरण",
+      "schedule": "देखभाल अनुसूची"
+    },
+    "metrics": {
+      "health": "स्वास्थ्य",
+      "healthScore": "स्वास्थ्य स्कोर",
+      "growthProgress": "वृद्धि प्रगति",
+      "harvestIn": "{days} दिनों में फसल"
+    },
+    "stages": {
+      "seedling": "अंकुर",
+      "vegetative": "वानस्पतिक",
+      "flowering": "फूल आना",
+      "fruiting": "फल आना",
+      "harvest": "फसल"
+    },
+    "sections": {
+      "plantInformation": "पौधे की जानकारी",
+      "growthMetrics": "वृद्धि मेट्रिक्स",
+      "recommendations": "AI सिफारिशें",
+      "wateringSchedule": "पानी देने की अनुसूची",
+      "fertilizerSchedule": "उर्वरक अनुसूची"
+    },
+    "labels": {
+      "variety": "किस्म:",
+      "planted": "रोपित:",
+      "stage": "चरण:",
+      "next": "अगला:"
+    },
+    "actions": {
+      "water": "पानी दें",
+      "fertilize": "खाद दें"
+    }
+  },
+  "news": {
+    "title": "कृषि समाचार",
+    "read": "पढ़ें",
+    "previous": "पिछला समाचार लेख",
+    "next": "अगला समाचार लेख",
+    "pause": "ऑटो-एडवांस रोकें",
+    "resume": "ऑटो-एडवांस जारी रखें"
   }
 }

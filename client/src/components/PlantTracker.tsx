@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Sprout, Droplets, Sun, Calendar, Plus, TrendingUp } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 interface Plant {
   id: string
@@ -41,6 +42,7 @@ const stageIcons = {
 }
 
 export function PlantTracker({ plants }: PlantTrackerProps) {
+  const { t } = useLanguage()
   const [selectedPlant, setSelectedPlant] = useState(plants[0])
 
   const addNewPlant = () => {
@@ -62,20 +64,20 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center gap-2">
               <Sprout className="h-5 w-5" />
-              Plant Growth Tracker
+              {t("tracker.title")}
             </CardTitle>
             <Button onClick={addNewPlant} data-testid="button-add-plant">
               <Plus className="h-4 w-4 mr-2" />
-              Add Plant
+              {t("tracker.addPlant")}
             </Button>
           </div>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="overview" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="details">Plant Details</TabsTrigger>
-              <TabsTrigger value="schedule">Care Schedule</TabsTrigger>
+              <TabsTrigger value="overview">{t("tracker.tabs.overview")}</TabsTrigger>
+              <TabsTrigger value="details">{t("tracker.tabs.details")}</TabsTrigger>
+              <TabsTrigger value="schedule">{t("tracker.tabs.schedule")}</TabsTrigger>
             </TabsList>
             
             <TabsContent value="overview" className="space-y-4">
@@ -107,18 +109,18 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                         className={stageColors[plant.stage]}
                         data-testid={`badge-stage-${plant.id}`}
                       >
-                        {plant.stage}
+                        {t(`tracker.stages.${plant.stage}`)}
                       </Badge>
                       
                       <div className="mt-3 space-y-2">
                         <div className="flex justify-between text-sm">
-                          <span>Health</span>
+                          <span>{t("tracker.metrics.health")}</span>
                           <span data-testid={`text-health-${plant.id}`}>{plant.health}%</span>
                         </div>
                         <Progress value={plant.health} className="h-2" />
                         
                         <div className="flex justify-between text-sm">
-                          <span>Growth Progress</span>
+                          <span>{t("tracker.metrics.growthProgress")}</span>
                           <span data-testid={`text-progress-${plant.id}`}>{plant.growthProgress}%</span>
                         </div>
                         <Progress value={plant.growthProgress} className="h-2" />
@@ -126,7 +128,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                       
                       <div className="mt-3 text-xs text-muted-foreground">
                         <div data-testid={`text-harvest-${plant.id}`}>
-                          Harvest in {plant.daysToHarvest} days
+                          {t("tracker.metrics.harvestIn").replace('{days}', plant.daysToHarvest.toString())}
                         </div>
                       </div>
                     </CardContent>
@@ -147,38 +149,38 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                   <CardContent className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <h4 className="font-medium mb-2">Plant Information</h4>
+                        <h4 className="font-medium mb-2">{t("tracker.sections.plantInformation")}</h4>
                         <div className="space-y-1 text-sm">
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Variety:</span>
+                            <span className="text-muted-foreground">{t("tracker.labels.variety")}</span>
                             <span data-testid="text-detail-variety">{selectedPlant.variety}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Planted:</span>
+                            <span className="text-muted-foreground">{t("tracker.labels.planted")}</span>
                             <span data-testid="text-detail-planted">{selectedPlant.plantedDate}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-muted-foreground">Stage:</span>
+                            <span className="text-muted-foreground">{t("tracker.labels.stage")}</span>
                             <Badge className={stageColors[selectedPlant.stage]} data-testid="badge-detail-stage">
-                              {selectedPlant.stage}
+                              {t(`tracker.stages.${selectedPlant.stage}`)}
                             </Badge>
                           </div>
                         </div>
                       </div>
                       
                       <div>
-                        <h4 className="font-medium mb-2">Growth Metrics</h4>
+                        <h4 className="font-medium mb-2">{t("tracker.sections.growthMetrics")}</h4>
                         <div className="space-y-2">
                           <div>
                             <div className="flex justify-between text-sm mb-1">
-                              <span>Health Score</span>
+                              <span>{t("tracker.metrics.healthScore")}</span>
                               <span data-testid="text-detail-health">{selectedPlant.health}%</span>
                             </div>
                             <Progress value={selectedPlant.health} className="h-2" />
                           </div>
                           <div>
                             <div className="flex justify-between text-sm mb-1">
-                              <span>Growth Progress</span>
+                              <span>{t("tracker.metrics.growthProgress")}</span>
                               <span data-testid="text-detail-progress">{selectedPlant.growthProgress}%</span>
                             </div>
                             <Progress value={selectedPlant.growthProgress} className="h-2" />
@@ -190,7 +192,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                     <div>
                       <h4 className="font-medium mb-2 flex items-center gap-2">
                         <TrendingUp className="h-4 w-4" />
-                        AI Recommendations
+                        {t("tracker.sections.recommendations")}
                       </h4>
                       <ul className="space-y-1 text-sm">
                         {selectedPlant.recommendations.map((rec, index) => (
@@ -212,7 +214,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Droplets className="h-5 w-5 text-blue-500" />
-                      Watering Schedule
+                      {t("tracker.sections.wateringSchedule")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -224,7 +226,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                               {plant.name}
                             </div>
                             <div className="text-sm text-muted-foreground" data-testid={`watering-next-${plant.id}`}>
-                              Next: {plant.nextWatering}
+                              {t("tracker.labels.next")} {plant.nextWatering}
                             </div>
                           </div>
                           <Button 
@@ -234,7 +236,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                             data-testid={`button-water-${plant.id}`}
                           >
                             <Droplets className="h-4 w-4 mr-1" />
-                            Water
+                            {t("tracker.actions.water")}
                           </Button>
                         </div>
                       ))}
@@ -246,7 +248,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Sun className="h-5 w-5 text-yellow-500" />
-                      Fertilizer Schedule
+                      {t("tracker.sections.fertilizerSchedule")}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -258,7 +260,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                               {plant.name}
                             </div>
                             <div className="text-sm text-muted-foreground" data-testid={`fertilizer-next-${plant.id}`}>
-                              Next: {plant.nextFertilizer}
+                              {t("tracker.labels.next")} {plant.nextFertilizer}
                             </div>
                           </div>
                           <Button 
@@ -268,7 +270,7 @@ export function PlantTracker({ plants }: PlantTrackerProps) {
                             data-testid={`button-fertilize-${plant.id}`}
                           >
                             <Sun className="h-4 w-4 mr-1" />
-                            Fertilize
+                            {t("tracker.actions.fertilize")}
                           </Button>
                         </div>
                       ))}

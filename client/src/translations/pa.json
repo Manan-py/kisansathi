@@ -73,18 +73,74 @@
     "result": "ਵਿਸ਼ਲੇਸ਼ਣ ਨਤੀਜਾ"
   },
   "market": {
-    "title": "ਮੰਡੀ ਕੀਮਤ ਭਵਿੱਖਬਾਣੀ",
+    "title": "ਮਾਰਕੀਟ ਦੀਆਂ ਕੀਮਤਾਂ",
     "crop": "ਫਸਲ",
     "price": "ਕੀਮਤ",
     "trend": "ਰੁਝਾਨ",
-    "location": "ਸਥਾਨ"
+    "location": "ਸਥਾਨ",
+    "refresh": "ਰਿਫ੍ਰੈਸ਼",
+    "pricePrediction": "ਕੀਮਤ ਦੀ ਭਵਿੱਖਬਾਣੀ",
+    "nextWeek": "ਅਗਲਾ ਹਫ਼ਤਾ:",
+    "nextMonth": "ਅਗਲਾ ਮਹੀਨਾ:",
+    "priceTrend": "ਕੀਮਤ ਦਾ ਰੁਝਾਨ (ਪਿਛਲੇ 7 ਦਿਨ)",
+    "lastUpdated": "ਆਖਰੀ ਅਪਡੇਟ:",
+    "recommendation": {
+      "buy": "ਖਰੀਦੋ",
+      "sell": "ਵੇਚੋ",
+      "hold": "ਰੱਖੋ"
+    },
+    "tooltipPrice": "ਕੀਮਤ",
+    "tooltipDate": "ਮਿਤੀ:"
   },
   "tracker": {
     "title": "ਪੌਧੇ ਦੀ ਵਿਕਾਸ ਟਰੈਕਰ",
-    "addPlant": "ਨਵਾਂ ਪੌਧਾ ਜੋੜੋ",
+    "addPlant": "ਪੌਧਾ ਜੋੜੋ",
     "plantName": "ਪੌਧੇ ਦਾ ਨਾਮ",
     "plantType": "ਪੌਧੇ ਦੀ ਕਿਸਮ",
     "plantedDate": "ਰੋਪਣ ਦੀ ਤਾਰੀਖ",
-    "status": "ਸਥਿਤੀ"
+    "status": "ਸਥਿਤੀ",
+    "tabs": {
+      "overview": "ਸਮੀਖਿਆ",
+      "details": "ਪੌਧੇ ਦਾ ਵਿਵਰਣ",
+      "schedule": "ਦੇਖਭਾਲ ਅਨੁਸੂਚੀ"
+    },
+    "metrics": {
+      "health": "ਸਿਹਤ",
+      "healthScore": "ਸਿਹਤ ਸਕੋਰ",
+      "growthProgress": "ਵਿਕਾਸ ਪ੍ਰਗਤੀ",
+      "harvestIn": "{days} ਦਿਨਾਂ ਵਿੱਚ ਫਸਲ"
+    },
+    "stages": {
+      "seedling": "ਬੀਜ",
+      "vegetative": "ਬਨਸਪਤੀ",
+      "flowering": "ਫੁੱਲ ਆਉਣਾ",
+      "fruiting": "ਫਲ ਆਉਣਾ",
+      "harvest": "ਫਸਲ"
+    },
+    "sections": {
+      "plantInformation": "ਪੌਧੇ ਦੀ ਜਾਣਕਾਰੀ",
+      "growthMetrics": "ਵਿਕਾਸ ਮਾਪ",
+      "recommendations": "AI ਸੁਝਾਅ",
+      "wateringSchedule": "ਪਾਣੀ ਦੇਣ ਦੀ ਅਨੁਸੂਚੀ",
+      "fertilizerSchedule": "ਖਾਦ ਦੇਣ ਦੀ ਅਨੁਸੂਚੀ"
+    },
+    "labels": {
+      "variety": "ਕਿਸਮ:",
+      "planted": "ਰੋਪਿਆ:",
+      "stage": "ਪੜਾਅ:",
+      "next": "ਅਗਲਾ:"
+    },
+    "actions": {
+      "water": "ਪਾਣੀ ਦਿਓ",
+      "fertilize": "ਖਾਦ ਪਾਓ"
+    }
+  },
+  "news": {
+    "title": "ਖੇਤੀਬਾੜੀ ਦੀਆਂ ਖਬਰਾਂ",
+    "read": "ਪੜ੍ਹੋ",
+    "previous": "ਪਿਛਲਾ ਨਿਊਜ਼ ਆਰਟੀਕਲ",
+    "next": "ਅਗਲਾ ਨਿਊਜ਼ ਆਰਟੀਕਲ",
+    "pause": "ਆਟੋ-ਐਡਵਾਂਸ ਰੋਕੋ",
+    "resume": "ਆਟੋ-ਐਡਵਾਂਸ ਜਾਰੀ ਰੱਖੋ"
   }
 }
