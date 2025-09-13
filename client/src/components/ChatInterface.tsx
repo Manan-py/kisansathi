@@ -6,6 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Send, Bot, User, Mic, MicOff, Volume2, VolumeX } from "lucide-react"
 import { useVoice } from "@/contexts/VoiceContext"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 // Web Speech API type declarations
 declare global {
@@ -57,6 +58,7 @@ interface Message {
 
 export function ChatInterface() {
   const { isVoiceEnabled } = useVoice()
+  const { language, t } = useLanguage()
   
   const [messages, setMessages] = useState<Message[]>([
     {
