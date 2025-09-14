@@ -1,20 +1,41 @@
 import { Link } from "wouter"
-import { MessageSquare, Camera, TrendingUp, Sprout, Sun, Droplets, Wind, MapPin, Rocket } from "lucide-react"
+import { MessageSquare, Camera, TrendingUp, Sprout, MapPin, Rocket, LifeBuoy, Phone } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { NewsTicker } from "@/components/NewsTicker"
-import { useLanguage } from "@/contexts/LanguageContext"
+import { WeatherWidget } from "@/components/WeatherWidget"
+import { WeatherForecast } from "@/components/WeatherForecast"
+import { useState, useEffect } from "react"
+import { weatherService } from "@/services/weatherService"
 
 export default function Dashboard() {
-  
-  //todo: remove mock functionality
-  const mockWeather = {
-    location: "Punjab, India",
-    temperature: 28,
-    condition: "sunny" as const,
-    humidity: 65,
-    windSpeed: 12,
-  }
+  const [weather, setWeather] = useState({
+    location: "Loading...",
+    temperature: 0,
+    condition: "clear",
+    humidity: 0,
+    windSpeed: 0,
+    description: "Loading weather data...",
+    icon: "01d"
+  })
+  const [weatherLoading, setWeatherLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        setWeatherLoading(true)
+        const weatherData = await weatherService.getCurrentWeather()
+        setWeather(weatherData)
+      } catch (error) {
+        console.error('Failed to fetch weather:', error)
+        // Keep the loading state or set fallback data
+      } finally {
+        setWeatherLoading(false)
+      }
+    }
+
+    fetchWeather()
+  }, [])
 
   const mockNews = [
     {
@@ -80,47 +101,131 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-background" data-testid="page-dashboard">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-950 dark:to-green-900 p-6 rounded-lg mb-6">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-          <div className="space-y-2">
+      <div className="relative rounded-lg overflow-hidden mb-4 bg-gradient-to-r from-emerald-50 to-green-100 dark:from-emerald-950 dark:to-green-900">
+        {/* Subtle pattern overlay */}
+        <div className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-25" style={{ backgroundImage: "radial-gradient(circle at 20% 20%, rgba(16,185,129,0.15), transparent 40%), radial-gradient(circle at 80% 0%, rgba(5,150,105,0.15), transparent 45%)" }} />
+        <div className="relative p-4">
+          <div className="space-y-1">
             <h1 className="text-2xl lg:text-3xl font-bold text-green-900 dark:text-green-100" data-testid="text-welcome-title">
               Welcome, Farmer!
             </h1>
             <p className="text-green-700 dark:text-green-200 flex items-center gap-2" data-testid="text-location">
               <MapPin className="h-4 w-4" />
-              {mockWeather.location}
+              {weather.location}
             </p>
           </div>
-          
-          {/* Current Weather Summary */}
-          <Card className="lg:w-80 bg-white/50 dark:bg-black/20 border-green-200 dark:border-green-800">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div className="space-y-1">
-                  <p className="text-sm text-muted-foreground">Current Weather</p>
-                  <p className="text-2xl font-bold" data-testid="text-temperature">
-                    {mockWeather.temperature}°C
-                  </p>
-                </div>
-                <Sun className="h-8 w-8 text-yellow-500" />
-              </div>
-              <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <Droplets className="h-4 w-4" />
-                  <span>{mockWeather.humidity}%</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Wind className="h-4 w-4" />
-                  <span>{mockWeather.windSpeed} km/h</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
 
-      {/* News Ticker */}
+      {/* Weather Section - full width, stretched columns */}
       <div className="mb-6">
+        <div className="flex flex-col lg:flex-row gap-4 w-full items-stretch">
+          {/* Weather Widget */}
+          <div className="flex-1 flex">
+            <WeatherWidget className="h-full" />
+          </div>
+          
+          {/* Right Column: Grid where Support spans Forecast+Video height */}
+          <div className="flex-[1.3] grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-4 items-stretch">
+            {/* 1) Forecast (left, row 1) */}
+            <div className="">
+              <WeatherForecast />
+            </div>
+
+            {/* 2) Support & Helplines (right, spans both rows) */}
+            <div className="lg:row-span-2">
+              <Card className="h-full overflow-hidden">
+                <CardHeader className="pb-3">
+                  <div className="flex items-center gap-2">
+                    <LifeBuoy className="h-5 w-5" />
+                    <CardTitle className="text-lg font-semibold">Support & Helplines</CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="p-4 space-y-2 text-sm h-full">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-medium">Kisan Call Center</p>
+                      <p className="text-sm text-muted-foreground">General agri help, 6am–10pm</p>
+                    </div>
+                    <a href="tel:18001801551" className="inline-flex items-center gap-2 text-primary text-sm font-medium">
+                      <Phone className="h-4 w-4" /> 1800-180-1551
+                    </a>
+                  </div>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-medium">Agri Insurance Support</p>
+                      <p className="text-sm text-muted-foreground">Claim assistance and queries</p>
+                    </div>
+                    <a href="tel:18002669780" className="inline-flex items-center gap-2 text-primary text-sm font-medium">
+                      <Phone className="h-4 w-4" /> 1800-266-9780
+                    </a>
+                  </div>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <p className="font-medium">Local NGO Connect</p>
+                      <p className="text-sm text-muted-foreground">Training, seeds, subsidies</p>
+                    </div>
+                    <a href="https://www.naip.gov.in/ngo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary text-sm font-medium">
+                      Visit Site
+                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* 3) Educational Videos (left, row 2) */}
+            <div className="">
+              <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                Educational Videos
+              </h2>
+              <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                <div className="relative">
+                  <img 
+                    src="https://img.youtube.com/vi/LGF33NN4B8U/maxresdefault.jpg" 
+                    alt="Modern Farming Techniques for Better Yield"
+                    className="w-full h-40 md:h-44 object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-red-600 rounded-full p-3 hover:bg-red-700 transition-colors">
+                      <svg className="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="font-semibold text-base mb-2 line-clamp-2">
+                    Modern Farming Techniques for Better Yield
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Learn practical methods that can make daily farm work easier.
+                  </p>
+                  <a 
+                    href="https://www.youtube.com/watch?v=LGF33NN4B8U" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
+                  >
+                    Watch Now
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* News Section */}
+      <div className="mb-4">
         <NewsTicker news={mockNews} />
       </div>
 

@@ -3,16 +3,11 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { LanguageProvider } from "@/contexts/LanguageContext";
-import { VoiceProvider } from "@/contexts/VoiceContext";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { UserProfileIcon } from "@/components/UserProfileIcon";
-import { LanguageSelector } from "@/components/LanguageSelector";
-import { VoiceToggle } from "@/components/VoiceToggle";
 import { Sprout } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
 import Dashboard from "@/pages/Dashboard";
 import Chat from "@/pages/Chat";
 import DiseaseDetectionPage from "@/pages/DiseaseDetectionPage";
@@ -63,8 +58,6 @@ function AppContent() {
               </h1>
             </div>
             <div className="flex items-center gap-1">
-              <LanguageSelector />
-              <VoiceToggle />
               <UserProfileIcon profile={userProfile} />
               <ThemeToggle />
             </div>
@@ -82,12 +75,8 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <LanguageProvider>
-          <VoiceProvider>
-            <AppContent />
-            <Toaster />
-          </VoiceProvider>
-        </LanguageProvider>
+        <AppContent />
+        <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
   );

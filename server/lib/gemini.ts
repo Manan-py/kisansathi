@@ -8,16 +8,8 @@ import { GoogleGenAI } from "@google/genai";
 // This API key is from Gemini Developer API Key, not vertex AI API Key
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
 
-export async function getAgriculturalAdvice(message: string, language: string = 'en'): Promise<string> {
+export async function getAgriculturalAdvice(message: string): Promise<string> {
     try {
-        const languageMap: Record<string, string> = {
-            'en': 'English',
-            'hi': 'Hindi',
-            'pa': 'Punjabi'
-        }
-        
-        const responseLanguage = languageMap[language] || 'English'
-        
         const systemPrompt = `You are an expert agricultural AI assistant helping farmers with crop management, disease identification, weather planning, and sustainable farming practices. 
 
 Key responsibilities:
@@ -29,7 +21,7 @@ Key responsibilities:
 - Recommend appropriate crops for different conditions
 - Provide market insights and selling strategies
 
-IMPORTANT: Always respond in ${responseLanguage}. If the user asks in a different language, still respond in ${responseLanguage}.
+IMPORTANT: Always respond in English.
 
 Always be helpful, accurate, and consider local farming conditions. Keep responses concise but informative.`;
 

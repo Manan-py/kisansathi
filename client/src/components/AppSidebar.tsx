@@ -87,7 +87,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
         
-        <SidebarGroup>
+        <SidebarGroup className="mt-auto">
           <SidebarGroupLabel>Account</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

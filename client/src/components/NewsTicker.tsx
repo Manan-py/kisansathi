@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight, Newspaper, Play, Pause, FlaskConical, FileText, Leaf, Laptop, TrendingUp } from "lucide-react"
+import { ChevronLeft, ChevronRight, Newspaper, Play, Pause, FlaskConical, FileText, Leaf, Laptop, TrendingUp, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -46,11 +46,15 @@ export function NewsTicker({ news }: NewsTickerProps) {
   const currentNews = news[currentIndex]
 
   return (
-    <Card className="p-4" data-testid="card-news-ticker">
+    <Card className="p-4 border-2 border-red-300 dark:border-red-800 bg-gray-50 dark:bg-neutral-900/40 shadow-sm hover:shadow-md transition-shadow" data-testid="card-news-ticker">
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-lg font-semibold flex items-center gap-2" data-testid="text-news-header">
           <Newspaper className="h-5 w-5" />
           Agricultural News
+          <span className="ml-1 inline-flex items-center gap-1 rounded-full bg-red-500/10 text-red-600 dark:text-red-300 px-2 py-0.5 text-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
+            Live
+          </span>
         </h2>
         <div className="flex items-center gap-2">
           <Button
@@ -91,7 +95,7 @@ export function NewsTicker({ news }: NewsTickerProps) {
 
       <div className="space-y-3" aria-live="polite" aria-atomic="true">
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="flex items-center gap-1" data-testid={`badge-category-${currentNews.category.toLowerCase()}`}>
+          <Badge variant="secondary" className={`flex items-center gap-1 ${getCategoryStyle(currentNews.category)}`} data-testid={`badge-category-${currentNews.category.toLowerCase()}`}>
             {getCategoryIcon(currentNews.category)}
             {currentNews.category}
           </Badge>
@@ -108,11 +112,20 @@ export function NewsTicker({ news }: NewsTickerProps) {
           {currentNews.summary}
         </p>
 
-        <div className="flex justify-between items-center pt-2">
+        <div className="flex items-center gap-3 pt-2">
           <span className="text-xs text-muted-foreground">
             {currentNews.source}
           </span>
-          <div className="flex gap-1" role="tablist" aria-label="News articles navigation">
+          <a
+            href={currentNews.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-primary text-sm font-medium hover:text-primary/80"
+          >
+            Read more
+            <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+          <div className="flex gap-1 ml-auto" role="tablist" aria-label="News articles navigation">
             {news.map((_, index) => (
               <button
                 key={index}
@@ -146,4 +159,15 @@ function getCategoryIcon(category: string) {
     'Market': <TrendingUp className="h-3 w-3" />,
   }
   return iconMap[category] || <Newspaper className="h-3 w-3" />
+}
+
+function getCategoryStyle(category: string) {
+  const map: Record<string, string> = {
+    'Research': 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
+    'Policy': 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+    'Sustainability': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300',
+    'Technology': 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
+    'Market': 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300',
+  }
+  return map[category] || 'bg-muted'
 }
